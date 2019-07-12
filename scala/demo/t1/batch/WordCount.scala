@@ -1,6 +1,6 @@
 package demo.t1.batch
 
-import demo.t1.batch.resource.WordCountData
+import demo.t1.resource.WordCountData
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.api.scala.ExecutionEnvironment
 import org.apache.flink.api.scala._
