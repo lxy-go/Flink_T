@@ -11,7 +11,7 @@ import java.util.Properties;
  * @data: 2019/7/19 9:35 PM
  * @author:lixiyan
  */
-public class KafkaConsumer {
+public class MainKafkaSource {
     public static void main(String[] args) throws Exception{
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 

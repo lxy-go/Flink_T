@@ -12,7 +12,7 @@ import java.util.Properties;
  * @data: 2019/7/20 11:55 AM
  * @author:lixiyan
  */
-public class PrintSinkMain {
+public class MainPrintSink {
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
@@ -28,7 +28,7 @@ public class PrintSinkMain {
 
 //        dataSource.print();
         dataSource.addSink(new PrintSinkFunction<>());
-        env.execute("PrintSinkMain");
+        env.execute("MainPrintSink");
 
     }
 }

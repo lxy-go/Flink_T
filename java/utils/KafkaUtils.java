@@ -1,3 +1,5 @@
+package utils;
+
 import com.alibaba.fastjson.JSON;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -6,7 +8,7 @@ import java.util.HashMap;
 import java.util.Properties;
 
 /**
- * TODO
+ * 定时循环写metrics信息到kafka
  *
  * @data: 2019/7/19 9:23 PM
  * @author:lixiyan
