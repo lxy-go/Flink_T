@@ -26,7 +26,7 @@ public class KafkaUtils2 {
         KafkaProducer<String, String> producer = new KafkaProducer<>(pros);
 
         for (int i = 0; i < 100; i++) {
-            Student student = new Student(i+100, "lion" + i, "psw" + i, i);
+            Student student = new Student(i+100, "lion" + i, "psw" + i, 1);
             ProducerRecord<String, String> producerRecord = new ProducerRecord<>(TOPIC, null, null, JSON.toJSONString(student));
             producer.send(producerRecord);
             System.out.println("发送数据： "+JSON.toJSONString(student));
