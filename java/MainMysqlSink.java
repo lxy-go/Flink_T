@@ -5,6 +5,7 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import sink.MysqlSink;
+import sink.PrintSinkFunction;
 
 import java.util.Properties;
 
@@ -27,12 +28,13 @@ public class MainMysqlSink {
 
 
         SingleOutputStreamOperator<Student> student = env.addSource(new FlinkKafkaConsumer<>(
-                "test",   //这个 kafka topic 需要和上面的工具类的 topic 一致
+                "tc",   //这个 kafka topic 需要和上面的工具类的 topic 一致
                 new SimpleStringSchema(),
                 props)).setParallelism(1)
                 .map(string -> JSON.parseObject(string, Student.class));
 
         student.addSink(new MysqlSink());
+        student.addSink(new PrintSinkFunction<>());
 
         env.execute("MainMysqlSink");
     }

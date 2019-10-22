@@ -21,7 +21,7 @@ object KafkaConnnectorProducerAPP {
     // 1. 从socket接受数据，通过flink将数据sink到kafka
     val data = env.socketTextStream("localhost",12345)
     // 2. 配置Kafka属性
-    val topic = "test"
+    val topic = "test002"
     val properties = new Properties()
     properties.setProperty("bootstrap.servers","node001:9092")
     // 3.构造器 topic - 序列化器 - kafka属性 —— Flink语义

@@ -1,5 +1,8 @@
 import com.xiyun.flink.StreamingT1;
 import dao.SourceFromMysql;
+import entity.Student;
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
+import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 
@@ -12,7 +15,9 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 public class MainMysqlSource {
     public static void main(String[] args) throws Exception{
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.addSource(new SourceFromMysql()).print();
+        DataStreamSource<Student> studentDataStreamSource = env.addSource(new SourceFromMysql());
+        SingleOutputStreamOperator<String> map = studentDataStreamSource.map(x -> x.getName());
+        map.print();
         env.execute("MainMysqlSource");
     }
 }

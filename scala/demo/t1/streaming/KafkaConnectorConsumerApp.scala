@@ -19,9 +19,9 @@ object KafkaConnectorConsumerApp {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
 
     // 1. 定义kafka信息
-    val topic = "test"
+    val topic = "maxwell"
     val properties = new Properties()
-    properties.setProperty("bootstrap.servers", "node001:9092")
+    properties.setProperty("bootstrap.servers", "localhost:9092")
     properties.setProperty("group.id","test")
 
     // 2.定义Kafka source

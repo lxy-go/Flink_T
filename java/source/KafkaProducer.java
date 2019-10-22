@@ -20,7 +20,7 @@ public class KafkaProducer {
         DataStreamSource<String> text = env.addSource(new MyNoParalleSource()).setParallelism(1);
         Properties props = new Properties();
         props.setProperty("bootstrap.servers","172.16.206.133:9092");
-        FlinkKafkaProducer010<String> producer010 = new FlinkKafkaProducer010<>("test1", new SimpleStringSchema(), props);
+        FlinkKafkaProducer010<String> producer010 = new FlinkKafkaProducer010<>("test", new SimpleStringSchema(), props);
 
         text.addSink(producer010);
         env.execute("KafkaProducer");
